@@ -186,7 +186,8 @@ class HostOut:
     def getHostoutFile(self):
         config = ConfigParser.ConfigParser()
         config.optionxform = str
-#        config.read([path])
+        # default all config settings from partname + ".cfg"
+        config.read(self.name+".cfg")
         if 'buildout' not in config.sections():
             config.add_section('buildout')
         files = []
